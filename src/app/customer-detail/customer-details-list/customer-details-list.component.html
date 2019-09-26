@@ -1,0 +1,21 @@
+<table class="table table-hover">
+    <tr>
+        <th>First Name</th>
+        <th>Father Name</th>
+        <th>Last Name </th>
+        <th>Address </th>
+        <th>Mobile No </th>
+        <th></th>
+    </tr>
+<tr *ngFor="let pd of custdetService.list">
+<td  (click)="populateForm(pd)">{{ pd.CUST_FIRST_NM }}</td>
+<td (click)="populateForm(pd)">{{ pd.CUST_MID_NM }}</td>
+<td (click)="populateForm(pd)">{{ pd.CUST_LAST_NM }}</td>
+<td (click)="populateForm(pd)" >{{ pd.CUST_ADDRESS }}</td>
+<td (click)="populateForm(pd)" >{{ pd.CUST_MOBILE_NO }}</td>
+<td>
+    <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.CUST_ID)"> </i>
+</td>
+</tr>
+</table>
+

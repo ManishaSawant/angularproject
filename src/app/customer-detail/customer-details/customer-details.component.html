@@ -1,0 +1,108 @@
+
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off" datasource="formData"> 
+    <input type="hidden" name="CUST_ID" #CUST_ID="ngModel"  [ngModel]="custdetService.formData.CUST_ID">
+        <div class="row">
+      <div class="form-group col-md-4">
+        <div class="input-group">
+                 <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                          <i class="fas fa-user-circle"  [class.green-icon]="CUST_FIRST_NM.valid" [class.red-icon]="CUST_FIRST_NM.invalid && CUST_FIRST_NM.touched" ></i>
+                    </div>
+                    </div>
+            <input name="CUST_FIRST_NM" #CUST_FIRST_NM="ngModel" class="form-control"  [ngModel]="custdetService.formData.CUST_FIRST_NM" placeholder="First Name" required >
+          </div>
+      </div>
+    
+      <div class="form-group col-md-4">
+            <div class="input-group">
+                     <div class="input-group-prepend">
+                         <div class="input-group-text bg-white">
+                              <i class="fas fa-user-circle"></i>                 
+                          </div>
+                        </div>
+                <input name="CUST_MID_NM" #CUST_MID_NM="ngModel" class="form-control" [ngModel]="custdetService.formData.CUST_MID_NM" placeholder="Mid Name" required > 
+            </div> 
+          </div>
+        
+          <div class="form-group col-md-4">
+                <div class="input-group">
+                         <div class="input-group-prepend">
+                             <div class="input-group-text bg-white">
+                                  <i class="fas fa-user-circle"></i>                     
+                              </div>
+                            </div>
+                    <input name="CUST_LAST_NM" #CUST_LAST_NM="ngModel" class="form-control" [ngModel]="custdetService.formData.CUST_LAST_NM" placeholder="Last Name" required >
+                </div> 
+              </div>    
+              <div class="row">
+                  <div class="form-group col-md-12">
+                          <div class="validation-error" *ngIf="CUST_FIRST_NM.invalid && CUST_FIRST_NM.touched" >
+                              <label >First name is required.</label>
+                               </div>
+                          <div class="validation-error" *ngIf="CUST_MID_NM.invalid && CUST_MID_NM.touched" >
+                              <label >Mid name is required.</label>
+                               </div>
+                          <div class="validation-error" *ngIf="CUST_LAST_NM.invalid && CUST_LAST_NM.touched" >
+                              <label >Last name is required.</label>
+                               </div>
+                    </div>
+                 
+              </div>  
+            </div>
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <div class="input-group ">
+                             <div class="input-group-prepend">
+                                 <div class="input-group-text bg-white">
+                                   
+                                      <i class="fas fa-address-book"></i>
+                                  </div>
+                                </div>
+                        <input class="form-control" name="CUST_ADDRESS" #CUST_ADDRESS="ngModel"  [ngModel]="custdetService.formData.CUST_ADDRESS" placeholder="Address" required>
+                       
+                      </div>  
+                  </div>
+                  
+                        
+                     
+          </div>
+          <div class="row">
+            
+                  <div class="validation-error" *ngIf="CUST_ADDRESS.invalid && CUST_ADDRESS.touched">Address is required</div>
+                </div>
+           
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <div class="input-group">
+                             <div class="input-group-prepend">
+                                 <div class="input-group-text bg-white">
+                                      <i class="fas fa-mobile-alt"></i>
+                                  </div>
+                                </div>
+                        <input class="form-control" type="number" type="number" minlength="10" maxlength="10" minlength="10"  name="CUST_MOBILE_NO" #CUST_MOBILE_NO="ngModel"  [ngModel]="custdetService.formData.CUST_MOBILE_NO" placeholder="10 Digit Mobile No"
+                        oninput="javascript: if (this.value.length > this.maxLength) 
+                        {
+                          this.value = this.value.slice(0, this.maxLength);
+                        }"
+                     
+                        required>
+  
+                   </div>  
+                  </div>   
+                  <div class="row">
+            
+                      <div class="validation-error" *ngIf="CUST_MOBILE_NO.invalid && CUST_MOBILE_NO.touched">Mobile No. is required</div>
+                    </div>
+            </div>
+                                 
+          
+                   
+                            <div class="form-group col-md-4">
+                              <button type="submit"  class=" btn btn-success btn-lg btn-block" [disabled]="form.invalid"> 
+                                  <i class="fas fa-save"> submit  </i>                         
+                          </button>
+                       
+                           
+                          </div>
+                                      
+    </form>
